@@ -2,5 +2,7 @@
 </script>
 
 <template>
-    <h1>Hello</h1>
+    <div class="bg-red-500 w-full">
+        <h1>Hello</h1>
+    </div>
 </template>
