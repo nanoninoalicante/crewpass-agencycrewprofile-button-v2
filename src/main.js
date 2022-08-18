@@ -3,4 +3,4 @@ import App from "./App.vue";
 
 const app = createApp(App);
 
-app.mount("#button");
+app.mount("#cp-agency-crew-profile-button");
