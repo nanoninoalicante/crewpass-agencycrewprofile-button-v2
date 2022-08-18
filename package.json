@@ -7,7 +7,7 @@
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
-    "pinia": "^2.0.17",
+    "@vueuse/core": "^9.1.0",
     "vue": "^3.2.37"
   },
   "devDependencies": {
