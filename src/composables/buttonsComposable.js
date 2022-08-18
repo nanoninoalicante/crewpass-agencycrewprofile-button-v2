@@ -54,6 +54,7 @@ const sanitizedParams = computed(() => {
         "cpGender": 'gender',
         "cpCountryCode": 'countrycode',
         "cpPhone": 'phoneno',
+        "cpStreetAddress": 'address',
         "cpCity": 'city',
         "cpState": 'state',
         "cpCountry": 'country',
