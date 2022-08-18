@@ -1,7 +1,7 @@
 import { ref, computed, reactive } from "vue"
 import { useGeneralComposable } from "./generalComposable";
 const { remapData } = useGeneralComposable()
-const buttonText = ref("Start with CrewPass")
+const buttonText = ref("Approve With CrewPass")
 const logo = "https://storage.googleapis.com/crewpass-production-loginbutton/cp-icon.png";
 const crewStatus = ref("not-checked");
 const content = {
