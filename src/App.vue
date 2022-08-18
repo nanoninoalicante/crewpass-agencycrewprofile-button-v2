@@ -6,3 +6,6 @@
         <h1>Hello</h1>
     </div>
 </template>
+<style scoped>
+@import "./index.css";
+</style>
