@@ -3,45 +3,37 @@ import { useGeneralComposable } from "./generalComposable";
 const { remapData } = useGeneralComposable()
 const buttonText = ref("Start with CrewPass")
 const logo = "https://storage.googleapis.com/crewpass-production-loginbutton/cp-icon.png";
-const buttonColor = ref("bg-[#2B3D4B]")
-
+const crewStatus = ref("not-checked");
 const content = {
     buttonText: "Approve with CrewPass",
     pleaseWait: "Please wait...",
     statuses: {
         "not-checked": {
-            buttonText: "Approve With CrewPass",
-            backgroundColor: "#2B3D4B"
+            buttonText: "Approve With CrewPass"
         },
         loading: {
-            buttonText: "Please Wait..",
-            backgroundColor: "#2B3D4B"
+            buttonText: "Please Wait.."
         },
         pending: {
-            buttonText: "Pending",
-            backgroundColor: "#F39200"
+            buttonText: "Pending"
         },
         approved: {
-            buttonText: "Approved",
-            backgroundColor: "#3AAA35"
+            buttonText: "Approved"
         },
         verified: {
-            buttonText: "Approved",
-            backgroundColor: "#3AAA35"
+            buttonText: "Approved"
         },
         declined: {
-            buttonText: "Declined",
-            backgroundColor: "#E6332A"
+            buttonText: "Declined"
         },
         unchecked: {
-            buttonText: "Unchecked",
-            backgroundColor: "#878787"
+            buttonText: "Unchecked"
         },
     },
 }
 
 const setContent = (status) => {
-    buttonColor.value = content.statuses[status || "not-checked"]?.backgroundColor;
+    crewStatus.value = status;
     buttonText.value = content.statuses[status || "not-checked"]?.buttonText;
 }
 
@@ -76,11 +68,12 @@ const popupUrl = computed(() => {
     return `https://verify-dev.crewpass.co.uk?${queryParams.value}`
 })
 const buttonClick = () => {
+    setContent("pending");
     window.open(popupUrl.value,
         "cpAgencyCrewLoginPopup",
         "status=1, height=800, width=500, toolbar=0,resizable=0");
 }
 
 export function useButtonsComposable() {
-    return { buttonColor, buttonText, logo, popupUrl, buttonClick, setContent, queryParams, sanitizedParams, inputData, loading }
+    return { crewStatus, buttonText, logo, popupUrl, buttonClick, setContent, queryParams, sanitizedParams, inputData, loading }
 }
