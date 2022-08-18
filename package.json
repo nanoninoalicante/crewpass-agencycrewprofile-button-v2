@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.1.0",
+    "flat": "^5.0.2",
     "vue": "^3.2.37"
   },
   "devDependencies": {

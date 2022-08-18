@@ -1,18 +1,10 @@
 <script setup>
-import { onMounted, reactive, ref } from "vue"
+import { onMounted } from "vue"
 import { useEventListener } from '@vueuse/core'
 import { useButtonsComposable } from "./composables/buttonsComposable";
 import SpinnerIcon from "./components/SpinnerIcon.vue";
-const { buttonColor, buttonText, logo, setContent } = useButtonsComposable();
-let inputData = reactive({
-    data: {}
-})
-const loading = ref(false);
-const buttonClick = () => {
-    window.open("https://www.apple.com/",
-        "cpLoginPopup",
-        "status=1, height=800, width=500, toolbar=0,resizable=0");
-}
+const { buttonColor, buttonText, logo, buttonClick, inputData, queryParams, sanitizedParams } = useButtonsComposable();
+
 useEventListener(window, 'message', (event) => {
     console.log('event: ', event.origin)
 })
@@ -40,6 +32,9 @@ onMounted(() => {
             }}
         </div>
     </button>
+    <!-- <pre>{{ sanitizedParams }}</pre>
+    <pre>{{ queryParams }}</pre>
+    <pre>{{ inputData.data }}</pre> -->
 </template>
 <style scoped>
 @import "./index.css";
