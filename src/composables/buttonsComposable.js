@@ -61,7 +61,11 @@ const sanitizedParams = computed(() => {
     cpState: "state",
     cpCountry: "country",
   };
-  return remapData(keys, inputData.data);
+  let params = remapData(keys, inputData.data);
+  if (!params.partner) {
+    params.partner = "yotspot";
+  }
+  return params;
 });
 const queryParams = computed(() => {
   const params = new URLSearchParams(sanitizedParams.value);

@@ -3,8 +3,7 @@ import { onMounted } from "vue"
 import { useEventListener } from '@vueuse/core'
 import { useButtonsComposable } from "./composables/buttonsComposable";
 import SpinnerIcon from "./components/SpinnerIcon.vue";
-const { crewStatus, buttonText, logo, buttonClick, inputData, queryParams, sanitizedParams } = useButtonsComposable();
-
+const { crewStatus, buttonText, logo, buttonClick, inputData, loading, queryParams } = useButtonsComposable();
 // useEventListener(window, 'message', (event) => {
 //     console.log('event: ', event.origin)
 // })
@@ -32,9 +31,6 @@ onMounted(() => {
             }}
         </div>
     </button>
-    <!-- <pre>{{ sanitizedParams }}</pre>
-    <pre>{{ queryParams }}</pre>
-    <pre>{{ inputData.data }}</pre> -->
 </template>
 <style scoped>
 @import "./index.css";
@@ -44,24 +40,31 @@ onMounted(() => {
     letter-spacing: -0.5px;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
+
 .pending {
     background-color: #F39200;
 }
+
 .not-checked {
     background-color: #2B3D4B;
 }
+
 .loading {
     background-color: #2B3D4B;
 }
+
 .approved {
     background-color: #3AAA35;
 }
+
 .verified {
     background-color: #3AAA35;
 }
+
 .declined {
     background-color: #E6332A;
 }
+
 .unchecked {
     background-color: #878787;
 }
