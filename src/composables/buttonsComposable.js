@@ -7,6 +7,7 @@ const logo =
     "https://storage.googleapis.com/crewpass-production-loginbutton/cp-icon.png";
 const buttonText = ref("Approve With CrewPass");
 const crewUserData = useStorage(`cp-crew-user`, { status: "not-checked" });
+const popupBaseUrl = ref("https://crewpass-testing-web.netlify.app/crew-messages");
 const content = {
     buttonText: "Approve with CrewPass",
     pleaseWait: "Please wait...",
@@ -75,7 +76,7 @@ const queryParams = computed(() => {
     return params.toString();
 });
 const popupUrl = computed(() => {
-    return `https://crewpass-testing-web.netlify.app/crew-messages?${queryParams.value}`;
+    return `${popupBaseUrl.value}?${queryParams.value}`;
 });
 const origin = window.location.origin;
 const popupFullUrlObject = computed(() => {
@@ -110,6 +111,9 @@ watch(crewUserData, (newValue) => {
 const setButtonData = (dataset) => {
     for (let i in dataset) {
         inputData.data[i] = dataset[i];
+    }
+    if (dataset["cpPopupUrl"]) {
+        popupBaseUrl.value = dataset["cpPopupUrl"];
     }
 };
 
