@@ -3,7 +3,7 @@ import { ref, onMounted } from "vue"
 import { useEventListener } from "@vueuse/core";
 import { useButtonsComposable } from "../composables/buttonsComposable";
 import SpinnerIcon from "./SpinnerIcon.vue";
-const { buttonText, logo, buttonClick, loading, crewUserData, popupOrigin, setButtonData, setContent, inputData } = useButtonsComposable();
+const { buttonText, logo, buttonClick, loading, crewUserData, popupOrigin, setButtonData, setContent, setMessageResponse } = useButtonsComposable();
 const messages = ref([]);
 
 useEventListener(window, 'message', (message) => {
@@ -11,8 +11,8 @@ useEventListener(window, 'message', (message) => {
     if (message.origin === popupOrigin.value) {
         console.log("message: ", message);
         messages.value.push(message.data);
-        if(message.data?.status && message.data?.cpUniqueId){  
-            console.log('setting message response: ', message.data)   
+        if (message.data?.status && message.data?.cpUniqueId) {
+            console.log('setting message response: ', message.data)
             setMessageResponse(message.data);
         }
     }
