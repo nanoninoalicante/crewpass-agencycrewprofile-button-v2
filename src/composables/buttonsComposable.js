@@ -36,6 +36,7 @@ const content = {
 };
 
 const setContent = (status) => {
+	console.log("setting content")
 	crewUserData.value.status = status;
 	buttonText.value = content.statuses[status || "not-checked"]?.buttonText;
 };

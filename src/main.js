@@ -18,7 +18,6 @@ if (document.getElementById("cp-agency-crew-profile-button")) {
 
     const config = { attributes: true, childList: true, subtree: true };
 
-    const observer = new MutationObserver(observerCallback);
     let ids = [];
     const createDOMMap = (element) => {
         if (element.id) ids.push(element.id);
@@ -37,6 +36,7 @@ if (document.getElementById("cp-agency-crew-profile-button")) {
             }
         });
     }
+    const observer = new MutationObserver(observerCallback);
     observer.observe(targetNode, config);
 
 }
