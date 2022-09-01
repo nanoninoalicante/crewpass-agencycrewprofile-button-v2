@@ -40,7 +40,6 @@ onMounted(() => {
             }}
         </div>
     </button>
-    <pre>{{ inputData.data }}</pre>
 </template>
 <style scoped>
 @import "./index.css";
