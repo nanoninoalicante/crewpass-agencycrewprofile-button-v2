@@ -3,7 +3,7 @@ import { onMounted, ref } from "vue"
 import { useEventListener } from '@vueuse/core'
 import { useButtonsComposable } from "./composables/buttonsComposable";
 import SpinnerIcon from "./components/SpinnerIcon.vue";
-const { buttonText, logo, buttonClick, inputData, loading, setContent, popupOrigin, crewUserData, setMessageResponse, setButtonData } = useButtonsComposable();
+const { buttonText, logo, buttonClick, loading, setContent, popupOrigin, crewUserData, setMessageResponse, setButtonData } = useButtonsComposable();
 
 const messages = ref([]);
 
