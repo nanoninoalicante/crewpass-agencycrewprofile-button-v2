@@ -11,7 +11,8 @@ useEventListener(window, 'message', (message) => {
     if (message.origin === popupOrigin.value) {
         console.log("message: ", message);
         messages.value.push(message.data);
-        if(message.data?.status){     
+        if(message.data?.status && message.data?.cpUniqueId){  
+            console.log('setting message response: ', message.data)   
             setMessageResponse(message.data);
         }
     }
