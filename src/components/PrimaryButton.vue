@@ -41,8 +41,6 @@ onMounted(() => {
             }}
         </div>
     </button>
-    <pre>{{ popupOrigin }}</pre>
-    <pre>{{ inputData.data }}</pre>
 </template>
 <style scoped>
 @import "../index.css";
