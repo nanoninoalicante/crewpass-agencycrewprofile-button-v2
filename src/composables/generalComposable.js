@@ -10,7 +10,6 @@ const remapData = (
 
     const mappedData = (keys, data) =>
         Object.keys(data).reduce((acc, key) => {
-            console.log("key: ", key)
             const renameObject = () => {
                 if (keys[key] === undefined || keys[key] === null) {
                     return null;
