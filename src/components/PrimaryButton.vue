@@ -11,7 +11,9 @@ useEventListener(window, 'message', (message) => {
     if (message.origin === popupOrigin.value) {
         console.log("message: ", message);
         messages.value.push(message.data);
-        setMessageResponse(message.data);
+        if(message.data?.status){     
+            setMessageResponse(message.data);
+        }
     }
 })
 
