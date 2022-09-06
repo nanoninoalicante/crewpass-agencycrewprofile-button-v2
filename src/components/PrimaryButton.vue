@@ -7,7 +7,8 @@ const { buttonText, logo, buttonClick, loading, crewUserData, popupOrigin, setBu
 const messages = ref([]);
 
 useEventListener(window, 'message', (message) => {
-    console.log('message: ', message.origin)
+    console.log('message origin: ', message.origin)
+    console.log('message: ', message.data)
     if (message.origin === popupOrigin.value) {
         console.log("message: ", message);
         messages.value.push(message.data);

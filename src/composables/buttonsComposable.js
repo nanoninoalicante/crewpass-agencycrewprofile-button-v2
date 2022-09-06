@@ -101,6 +101,13 @@ const buttonClick = () => {
     );
 };
 
+watch(popupFullUrl, (newValue) => {
+    const message = {
+        url: popupFullUrl.value
+    }
+    window.postMessage(message);
+})
+
 watch(crewUserData, (newValue) => {
     console.log("crew user data updated: ", newValue);
     if (newValue.status) {
