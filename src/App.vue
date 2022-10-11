@@ -1,68 +1,10 @@
 <script setup>
-import { onMounted } from "vue"
-import { useEventListener } from '@vueuse/core'
-import { useButtonsComposable } from "./composables/buttonsComposable";
-import SpinnerIcon from "./components/SpinnerIcon.vue";
-const { crewStatus, buttonText, logo, buttonClick, inputData, queryParams, sanitizedParams } = useButtonsComposable();
-
-// useEventListener(window, 'message', (event) => {
-//     console.log('event: ', event.origin)
-// })
-
-onMounted(() => {
-    const button = document.getElementById("cp-agency-crew-profile-button");
-    for (let i in button.dataset) {
-        inputData.data[i] = button.dataset[i];
-    }
-
-})
+import PrimaryButton from './components/PrimaryButton.vue';
 </script>
 
 <template>
-    <button id="primaryButton" @click="buttonClick"
-        class="inline-flex flex-row items-center py-1 pl-2 pr-3 w-80 rounded-xl text-white text-[17px] border-2 border-transparent hover:bg-opacity-80 focus:border-gray-400"
-        :class="crewStatus">
-        <img class="flex-none w-6 h-6 mr-3" :src="logo" />
-        <div v-if="loading" class="flex-none">
-            <SpinnerIcon class="w-5 h-5 fill-white animate-spin"></SpinnerIcon>
-        </div>
-        <div class="flex-auto">
-            {{
-                    buttonText
-            }}
-        </div>
-    </button>
-    <!-- <pre>{{ sanitizedParams }}</pre>
-    <pre>{{ queryParams }}</pre>
-    <pre>{{ inputData.data }}</pre> -->
+    <PrimaryButton></PrimaryButton>
 </template>
-<style scoped>
-@import "./index.css";
+<style>
 
-#primaryButton {
-    font-weight: 600;
-    letter-spacing: -0.5px;
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-}
-.pending {
-    background-color: #F39200;
-}
-.not-checked {
-    background-color: #2B3D4B;
-}
-.loading {
-    background-color: #2B3D4B;
-}
-.approved {
-    background-color: #3AAA35;
-}
-.verified {
-    background-color: #3AAA35;
-}
-.declined {
-    background-color: #E6332A;
-}
-.unchecked {
-    background-color: #878787;
-}
 </style>
