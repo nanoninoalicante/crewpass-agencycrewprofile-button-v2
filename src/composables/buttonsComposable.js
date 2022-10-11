@@ -7,7 +7,9 @@ const logo =
     "https://storage.googleapis.com/crewpass-production-loginbutton/cp-icon.png";
 const buttonText = ref("Approve With CrewPass");
 const crewUserData = useStorage(`cp-crew-user`, { status: "not-checked" });
-const popupBaseUrl = ref("https://crewpass-testing-web.netlify.app/crew-messages");
+const popupBaseUrl = ref(
+    "https://crewpass-testing-web.netlify.app/crew-messages"
+);
 const content = {
     buttonText: "Approve with CrewPass",
     pleaseWait: "Please wait...",
@@ -53,8 +55,8 @@ const sanitizedParams = computed(() => {
         cpPartner: "partner",
         cpUserId: "id",
         cpUserEmail: "email",
-        cpFirstName: "fname",
-        cpLastName: "lname",
+        cpFirstName: "crewfname",
+        cpLastName: "crewlname",
         cpNationality: "nationality",
         cpDob: "birthday",
         cpGender: "gender",
@@ -101,15 +103,14 @@ const buttonClick = () => {
     );
 };
 
-
 // ** DEV DEBUGGING ONLY //** */
 
 watch(popupFullUrl, (newValue) => {
     const message = {
-        url: popupFullUrl.value
-    }
+        url: popupFullUrl.value,
+    };
     window.postMessage(message);
-})
+});
 
 // ** -------------------- //** */
 
