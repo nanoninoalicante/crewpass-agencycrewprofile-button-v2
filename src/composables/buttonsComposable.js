@@ -66,6 +66,7 @@ const sanitizedParams = computed(() => {
         cpCity: "city",
         cpState: "state",
         cpCountry: "country",
+        cpCountryIsoCode: "countryisocode",
         cpZipcode: "zipcode",
     };
     let params = remapData(keys, inputData.data);
