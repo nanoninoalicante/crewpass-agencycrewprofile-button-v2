@@ -8,6 +8,7 @@ const logo =
 const buttonText = ref("Approve With CrewPass");
 const crewUserData = useStorage(`cp-crew-user`, { status: "not-checked" });
 const popupBaseUrl = ref(
+    import.meta.env.VITE_POPUP_BASE_URL ||
     "https://crewpass-testing-web.netlify.app/crew-messages"
 );
 const content = {
