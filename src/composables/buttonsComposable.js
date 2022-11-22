@@ -68,6 +68,7 @@ const sanitizedParams = computed(() => {
         cpState: "state",
         cpCountry: "country",
         cpCountryIsoCode: "countryisocode",
+        cpNationalityIsoCode: "nationalityisocode",
         cpZipcode: "zipcode",
     };
     let params = remapData(keys, inputData.data);
