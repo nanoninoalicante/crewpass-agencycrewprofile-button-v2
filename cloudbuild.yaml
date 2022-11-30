@@ -13,10 +13,6 @@ steps:
     entrypoint: npm
     args: ['run', 'build']
   - name: 'gcr.io/cloud-builders/gsutil'
-    args: ['cp', 'dist/assets/index.js', 'gs://${PROJECT_ID}-loginbutton/${_APP_NAME}-${_APP_ENV}-${_APP_VERSION}.js']
+    args: ['cp', 'dist/assets/index.js', 'gs://${PROJECT_ID}-loginbutton/${_APP_NAME}-${_APP_ENV}-${_APP_VERSION}.js', '--cache-control', 'no-cache']
   - name: 'gcr.io/cloud-builders/gsutil'
-    args: ['cp', 'dist/assets/index.css', 'gs://${PROJECT_ID}-loginbutton/${_APP_NAME}-${_APP_ENV}-${_APP_VERSION}.css']
-  # - name: 'gcr.io/cloud-builders/gsutil'
-  #   args: ['cp', 'public/Montserrat-Medium.woff', 'gs://${PROJECT_ID}-agencycrewprofile/Montserrat-Medium.woff']
-  # - name: 'gcr.io/cloud-builders/gsutil'
-  #   args: ['cp', 'public/Montserrat-Medium.woff2', 'gs://${PROJECT_ID}-agencycrewprofile/Montserrat-Medium.woff2']
+    args: ['cp', 'dist/assets/index.css', 'gs://${PROJECT_ID}-loginbutton/${_APP_NAME}-${_APP_ENV}-${_APP_VERSION}.css', '--cache-control', 'no-cache']
