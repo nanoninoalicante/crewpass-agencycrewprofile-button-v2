@@ -38,7 +38,7 @@ onMounted(() => {
         </div>
         <div class="flex-auto">
             {{
-                    buttonText
+        buttonText
             }}
         </div>
     </button>
