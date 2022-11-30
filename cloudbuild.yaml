@@ -7,7 +7,8 @@ steps:
     env:
       - 'APP_ENV=${BRANCH_NAME}'
       - 'PROJECT_ID=${PROJECT_ID}'
-      - 'ENVIRONMENT=${_APP_ENV}'
+      - 'VITE_ENVIRONMENT=${_APP_ENV}'
+      - 'VITE_COMMIT_ID=${SHORT_SHA}'
       - 'VERSION=${_VERSION}'
       - 'VITE_POPUP_BASE_URL=${_POPUP_URL}'
     entrypoint: npm

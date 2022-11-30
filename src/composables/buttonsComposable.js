@@ -11,6 +11,8 @@ const popupBaseUrl = ref(
     import.meta.env.VITE_POPUP_BASE_URL ||
     "https://master-dashboard-v1-ojo6h3z4mq-ez.a.run.app/crewlanding"
 );
+const commitId = import.meta.env.VITE_COMMIT_ID || null;
+const environment = import.meta.env.VITE_ENVIRONMENT|| null;
 const content = {
     buttonText: "Approve with CrewPass",
     pleaseWait: "Please wait...",
@@ -157,5 +159,7 @@ export function useButtonsComposable() {
         setMessageResponse,
         setButtonData,
         crewUserData,
+        commitId,
+        environment
     };
 }
