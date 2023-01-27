@@ -21,7 +21,7 @@ if (document.getElementById(buttonId)) {
     const targetNode = document;
     const config = { attributes: true, childList: true, subtree: true };
 
-    const observerCallbackV2 = (mutationList, observer) => {
+    const observerCallbackV2 = () => {
         const button = document.getElementById(buttonId);
         if (!button) {
             console.log("cannot find button - still looking..")
