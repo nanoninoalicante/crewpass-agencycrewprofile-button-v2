@@ -3,7 +3,19 @@ import { ref, onMounted } from "vue"
 import { useEventListener } from "@vueuse/core";
 import { useButtonsComposable } from "../composables/buttonsComposable";
 import SpinnerIcon from "./SpinnerIcon.vue";
-const { buttonText, logo, buttonClick, loading, crewUserData, popupOrigin, setButtonData, setContent, setMessageResponse } = useButtonsComposable();
+const {
+    buttonText,
+    logo,
+    buttonClick,
+    loading,
+    crewUserData,
+    popupOrigin,
+    setButtonData,
+    setContent,
+    setMessageResponse,
+    commitId,
+    environment
+} = useButtonsComposable();
 const messages = ref([]);
 
 useEventListener(window, 'message', (message) => {
@@ -26,6 +38,8 @@ onMounted(() => {
     if (crewUserData.value && crewUserData.value?.status) {
         setContent(crewUserData.value?.status?.toLowerCase())
     }
+    console.log("commit id: ", commitId);
+    console.log("env: ", environment);
 })
 </script>
 <template>
@@ -38,7 +52,7 @@ onMounted(() => {
         </div>
         <div class="flex-auto">
             {{
-                    buttonText
+        buttonText
             }}
         </div>
     </button>
