@@ -9,7 +9,7 @@ const buttonText = ref("Approve With CrewPass");
 const crewUserData = useStorage(`cp-crew-user`, { status: "not-checked" });
 const popupBaseUrl = ref(
     import.meta.env.VITE_POPUP_BASE_URL ||
-        "https://master-dashboard-v1-ojo6h3z4mq-ez.a.run.app/crewlanding"
+    "https://master-dashboard-v1-ojo6h3z4mq-ez.a.run.app/crewlanding"
 );
 const commitId = import.meta.env.VITE_COMMIT_ID || null;
 const environment = import.meta.env.VITE_ENVIRONMENT || null;
@@ -54,14 +54,14 @@ let inputData = reactive({
 const loading = ref(false);
 
 const capitalize = (str) => {
-  if (!str) return "";
-  return str
-    .split(" ")
-    .map((word) =>
-      (word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).trim()
-    )
-    .join(" ")
-    .trim();
+    if (!str) return "";
+    return str
+        .split(" ")
+        .map((word) =>
+            (word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).trim()
+        )
+        .join(" ")
+        .trim();
 };
 
 const sanitizedParams = computed(() => {
@@ -73,7 +73,7 @@ const sanitizedParams = computed(() => {
         cpLastName: "crewlname",
         cpNationality: "nationality",
         cpDob: "birthday",
-        cpGender: "gender",s
+        cpGender: "gender",
         cpCountryCode: "countrycode",
         cpPhone: "phoneno",
         cpStreetAddress: "address",
