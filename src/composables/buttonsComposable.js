@@ -9,10 +9,10 @@ const buttonText = ref("Approve With CrewPass");
 const crewUserData = useStorage(`cp-crew-user`, { status: "not-checked" });
 const popupBaseUrl = ref(
     import.meta.env.VITE_POPUP_BASE_URL ||
-    "https://master-dashboard-v1-ojo6h3z4mq-ez.a.run.app/crewlanding"
+        "https://master-dashboard-v1-ojo6h3z4mq-ez.a.run.app/crewlanding"
 );
 const commitId = import.meta.env.VITE_COMMIT_ID || null;
-const environment = import.meta.env.VITE_ENVIRONMENT|| null;
+const environment = import.meta.env.VITE_ENVIRONMENT || null;
 const content = {
     buttonText: "Approve with CrewPass",
     pleaseWait: "Please wait...",
@@ -53,6 +53,17 @@ let inputData = reactive({
 
 const loading = ref(false);
 
+const capitalize = (str) => {
+  if (!str) return "";
+  return str
+    .split(" ")
+    .map((word) =>
+      (word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).trim()
+    )
+    .join(" ")
+    .trim();
+};
+
 const sanitizedParams = computed(() => {
     const keys = {
         cpPartner: "partner",
@@ -62,7 +73,7 @@ const sanitizedParams = computed(() => {
         cpLastName: "crewlname",
         cpNationality: "nationality",
         cpDob: "birthday",
-        cpGender: "gender",
+        cpGender: "gender",s
         cpCountryCode: "countrycode",
         cpPhone: "phoneno",
         cpStreetAddress: "address",
@@ -74,8 +85,8 @@ const sanitizedParams = computed(() => {
         cpZipcode: "zipcode",
     };
     let params = remapData(keys, inputData.data);
-    if (!params.partner) {
-        params.partner = "yotspot";
+    if (params.partner) {
+        params.partner = capitalize(params.partner);
     }
     return params;
 });
@@ -160,6 +171,6 @@ export function useButtonsComposable() {
         setButtonData,
         crewUserData,
         commitId,
-        environment
+        environment,
     };
 }
