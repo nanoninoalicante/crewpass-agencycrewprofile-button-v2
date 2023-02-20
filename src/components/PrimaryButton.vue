@@ -11,6 +11,7 @@ const {
     loading,
     crewUserData,
     popupOrigin,
+    sanitizedParams,
     setButtonData,
     setContent,
     setMessageResponse,
@@ -46,29 +47,34 @@ onMounted(() => {
 });
 </script>
 <template>
-    <button
-        id="primaryButton"
-        @click="buttonClick"
-        class="relative inline-flex flex-row items-center py-[4px] pl-[7px] space-x-[12px] pr-[7px] m-0 md:w-[320px] rounded-2xl text-white text-[17px] border-2 border-transparent hover:bg-gray-500 focus:border-gray-400"
-        :class="crewUserData.status"
-    >
-        <img
-            class="flex-none w-[25px] h-[25px] p-0 ml-0 my-0 mr-[8px]"
-            :src="logo"
-        />
-        <div v-if="loading" class="flex-none">
-            <SpinnerIcon class="w-5 h-5 fill-white animate-spin"></SpinnerIcon>
-        </div>
-        <div class="flex-auto pl-[6px] pr-[16px] py-0 m-0">
-            <span class="text-[14px] p-0 m-0">{{ buttonText }}</span>
-        </div>
-        <div
-            v-if="inDev"
-            class="absolute text-right right-[5px] -top-[5px] m-0 p-0"
+    <div>
+        <pre>{{ sanitizedParams }}</pre>
+        <button
+            id="primaryButton"
+            @click="buttonClick"
+            class="relative inline-flex flex-row items-center py-[4px] pl-[7px] space-x-[12px] pr-[7px] m-0 md:w-[320px] rounded-2xl text-white text-[17px] border-2 border-transparent hover:bg-gray-500 focus:border-gray-400"
+            :class="crewUserData.status"
         >
-            <span class="text-[16px] text-red-700 m-0 pt-0">&#9210;</span>
-        </div>
-    </button>
+            <img
+                class="flex-none w-[25px] h-[25px] p-0 ml-0 my-0 mr-[8px]"
+                :src="logo"
+            />
+            <div v-if="loading" class="flex-none">
+                <SpinnerIcon
+                    class="w-5 h-5 fill-white animate-spin"
+                ></SpinnerIcon>
+            </div>
+            <div class="flex-auto pl-[6px] pr-[16px] py-0 m-0">
+                <span class="text-[14px] p-0 m-0">{{ buttonText }}</span>
+            </div>
+            <div
+                v-if="inDev"
+                class="absolute text-right right-[5px] -top-[5px] m-0 p-0"
+            >
+                <span class="text-[16px] text-red-700 m-0 pt-0">&#9210;</span>
+            </div>
+        </button>
+    </div>
 </template>
 <style scoped>
 @import "../index.css";
