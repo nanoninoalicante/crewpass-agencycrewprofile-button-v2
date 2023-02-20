@@ -11,6 +11,7 @@ const {
     loading,
     crewUserData,
     popupOrigin,
+    sanitizedParams,
     setButtonData,
     setContent,
     setMessageResponse,
